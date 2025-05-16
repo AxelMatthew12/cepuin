@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $gwh = User::create([
             'name' => 'PurnamaGanteng',
-            'email' => 'purnamaA@gmail.com',
+            'email' => 'himadatsuki@gmail.com',
             'password' => Hash::make('purnama'),
             'pfp_path' => 'https://randomuser.me/api/portraits/men/22.jpg',
 
