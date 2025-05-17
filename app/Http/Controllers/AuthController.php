@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -29,7 +30,54 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-   
+    public function register(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $temp = [
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ];
+
+        $url = URL::temporarySignedRoute(
+            'register.verify',
+            now()->addMinutes(30),
+            $temp
+        );
+
+        Mail::raw("Klik link ini untuk verifikasi dan menyelesaikan pendaftaran:\n\n$url", function ($msg) use ($validated) {
+            $msg->to($validated['email'])->subject('Verifikasi Pendaftaran');
+        });
+
+        return back()->with('success', 'Link verifikasi telah dikirim ke email Anda.');
+    }
+
+    public function verifyLink(Request $request)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401, 'Link verifikasi tidak valid atau sudah kedaluwarsa.');
+        }
+
+        if (User::where('email', $request->email)->exists()) {
+            return redirect()->route('register.form')->withErrors('Email sudah terdaftar.');
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password, 
+        ]);
+
+        Auth::login($user);
+
+        return redirect('/home')->with('success', 'Akun berhasil dibuat. Selamat datang!');
+    }
+
 
     public function login(Request $request)
     {

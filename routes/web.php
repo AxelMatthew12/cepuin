@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register.form');
+Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1')->name('register.sendlink');
+Route::get('/register/verify', [AuthController::class, 'verifyLink'])->name('register.verify');
+
 Route::get('/login', [AuthController::class, 'showLoginForm']);
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1')->name('login');
 
