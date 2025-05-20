@@ -1,9 +1,9 @@
  <section class="p-5 bg-primary-300">
      <form action="/" method="POST" enctype="multipart/form-data">
          @csrf
-         <div class="flex items-start gap-3 border-b border-secondary-200 pb-5">
+         <div class="flex items-start lg:gap-3 gap-1 border-b border-secondary-200 pb-5">
              <a href="/profile" class="shrink-0">
-                 <img src="{{ asset('assets/images/frieren.jpg') }}" class="size-12 rounded-full object-cover"
+                 <img src="{{ asset('assets/images/frieren.jpg') }}" class="lg:size-12 size-10 rounded-full object-cover"
                      alt="profile">
              </a>
              <textarea id="postInput" name="input-post" placeholder="Ada apa hari ini bos..."
