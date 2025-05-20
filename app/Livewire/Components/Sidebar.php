@@ -7,28 +7,41 @@ use Livewire\Component;
 class Sidebar extends Component
 {
 
-    public $links = [
-        [
-            'name' => 'Beranda',
-            'link' => '/'
-        ],
-        [
-            'name' => 'Trending',
-            'link' => '/trending'
-        ],
-        [
-            'name' => 'Statistik',
-            'link' => '/statistik'
-        ],
-        [
-            'name' => 'Notifikasi',
-            'link' => '/notification'
-        ],
-        [
-            'name' => 'Pengaturan',
-            'link' => '/pengaturan'
-        ]
-    ];
+    public $links = [];
+
+
+    public function mount()
+    {
+
+        $this->links = [
+            [
+                'name' => 'Beranda',
+                'link' => '/',
+                'icon' => config('constants.icon.home')
+            ],
+            [
+                'name' => 'Trending',
+                'link' => '/trending',
+                'icon' => config('constants.icon.trending')
+            ],
+            [
+                'name' => 'Statistik',
+                'link' => '/statistik',
+                'icon' => config('constants.icon.statistic')
+            ],
+            [
+                'name' => 'Notifikasi',
+                'link' => '/notification',
+                'icon' => config('constants.icon.notification')
+            ],
+            [
+                'name' => 'Pengaturan',
+                'link' => '/pengaturan',
+                'icon' => config('constants.icon.setting')
+            ]
+        ];
+        ;
+    }
 
     public function render()
     {

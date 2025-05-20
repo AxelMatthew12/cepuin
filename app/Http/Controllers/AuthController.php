@@ -19,12 +19,13 @@ class AuthController extends Controller
     }
     public function showForgotPassword()
     {
-        return view('auth.forgot.password');
+        return view('auth.forgot-password');
     }
-    public function showChangePassword()
-    {
-        return view('auth.changePassword');
-    }
+    // public function showChangePassword()
+    // {
+    //     return view('auth.changePassword');
+    // }
+
     public function showRegister()
     {
         return view('auth.register');
@@ -59,7 +60,7 @@ class AuthController extends Controller
 
     public function verifyLink(Request $request)
     {
-        if (! $request->hasValidSignature()) {
+        if (!$request->hasValidSignature()) {
             abort(401, 'Link verifikasi tidak valid atau sudah kedaluwarsa.');
         }
 
@@ -70,7 +71,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password, 
+            'password' => $request->password,
         ]);
 
         Auth::login($user);
@@ -82,8 +83,8 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email'    => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string'],
         ]);
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {

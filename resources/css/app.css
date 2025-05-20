@@ -4,9 +4,42 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+@plugin "@iconify/tailwind4";
 
 html {
     font-size: 16px;
+}
+
+/* <weight>: Use a value from 200 to 800 */
+/* <uniquifier>: Use a unique and descriptive class name */
+
+.plus-jakarta-sans-main-font {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200 - 800;
+    font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-secondary-100);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-secondary-200);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
 }
 
 @theme {
@@ -29,16 +62,6 @@ html {
 
 @layer components {
     .container {
-        @apply my-5 mx-5;
+        @apply py-5 mx-5;
     }
-}
-
-/* <weight>: Use a value from 200 to 800 */
-/* <uniquifier>: Use a unique and descriptive class name */
-
-.plus-jakarta-sans-main-font {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200 - 800;
-    font-style: normal;
 }

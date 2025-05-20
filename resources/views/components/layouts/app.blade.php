@@ -14,16 +14,21 @@
     @livewireStyles
 </head>
 
-<body class="h-screen overflow-hidden">
-    <div class="flex h-full">
-        @if (!request()->routeIs('login', 'login.*', 'register', 'register.*', 'auth.*'))
-            <livewire:components.sidebar />
-        @endif
-
-        <main class="flex-1 overflow-y-auto bg-primary-200">
+<body class="bg-primary-200">
+    @if (!request()->routeIs('login', 'register', 'register.*', 'auth.*'))
+        <livewire:components.sidebar />
+    @endif
+    <main class="ml-80 flex">
+        <div class="border-x border-white w-full">
             {{ $slot }}
-        </main>
-    </div>
+        </div>
+        <div>
+            @if (!request()->routeIs('login', 'register', 'register.*', 'auth.*'))
+                <livewire:components.stats-sidebar />
+            @endif
+        </div>
+    </main>
+
     @livewireScripts
 </body>
 
