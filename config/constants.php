@@ -16,6 +16,7 @@ return [
         'location-2' => 'icon-[mingcute--location-3-fill]',
         'eye' => 'icon-[mdi--eye]',
         'back' => 'icon-[lets-icons--back]',
-        'reply' => 'icon-[ic--baseline-reply]'
+        'reply' => 'icon-[ic--baseline-reply]',
+        'image' => 'icon-[material-symbols--image]'
     ]
 ];
