@@ -7,7 +7,7 @@ return [
         'statistic' => 'icon-[uis--graph-bar]',
         'notification' => 'icon-[mingcute--notification-fill]',
         'setting' => 'icon-[weui--setting-filled]',
-        'arrow' => 'icon-[mingcute--up-line]',
+        'arrow' => 'icon-[mingcute--up-fill]',
         'comment' => 'icon-[mdi--comment]',
         'location' => 'icon-[mdi--location]',
         'share' => 'icon-[iconamoon--share-2-fill]',
