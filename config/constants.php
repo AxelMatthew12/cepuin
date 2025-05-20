@@ -7,7 +7,7 @@ return [
         'statistic' => 'icon-[uis--graph-bar]',
         'notification' => 'icon-[mingcute--notification-fill]',
         'setting' => 'icon-[weui--setting-filled]',
-        'arrow' => 'icon-[mingcute--up-line]',
+        'arrow' => 'icon-[mingcute--up-fill]',
         'comment' => 'icon-[mdi--comment]',
         'location' => 'icon-[mdi--location]',
         'share' => 'icon-[iconamoon--share-2-fill]',
@@ -16,6 +16,7 @@ return [
         'location-2' => 'icon-[mingcute--location-3-fill]',
         'eye' => 'icon-[mdi--eye]',
         'back' => 'icon-[lets-icons--back]',
-        'reply' => 'icon-[ic--baseline-reply]'
+        'reply' => 'icon-[ic--baseline-reply]',
+        'image' => 'icon-[material-symbols--image]'
     ]
 ];
