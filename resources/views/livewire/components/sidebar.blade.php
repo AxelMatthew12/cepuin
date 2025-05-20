@@ -1,4 +1,4 @@
-<nav class="bg-primary-100 p-5 fixed h-screen w-80">
+<nav class="bg-primary-200 p-5 fixed h-screen w-80">
     <a href="/" class="text-200 text-secondary-200 font-bold ">
         cepuin.
     </a>
