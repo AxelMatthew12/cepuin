@@ -19,9 +19,7 @@
         <livewire:components.sidebar />
     @endif
     <main class="md:ml-80 ml-[72px] flex">
-        <div class="border-x border-white w-full">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
         <div>
             @if (!request()->routeIs('login', 'register', 'register.*', 'auth.*'))
                 <livewire:components.stats-sidebar />
