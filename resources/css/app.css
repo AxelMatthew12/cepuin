@@ -5,6 +5,7 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 @plugin "@iconify/tailwind4";
+@plugin "daisyui";
 
 html {
     font-size: 16px;
