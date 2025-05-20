@@ -4,7 +4,7 @@
         <div class="bg-primary-300 px-4 py-2 rounded-full flex items-center gap-2 w-full">
             <span class="{{ config('constants.icon.search') }} size-6 text-secondary-200"></span>
             <input type="text" placeholder="Cari"
-                class="bg-transparent focus:outline-none w-full placeholder:text-300 text-sm">
+                class="bg-transparent focus:outline-none w-full placeholder:text-400  text-sm">
         </div>
     </section>
     <!-- Post Section -->

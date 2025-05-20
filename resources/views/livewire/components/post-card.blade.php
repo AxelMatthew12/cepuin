@@ -1,19 +1,24 @@
 <div class="container flex flex-col gap-5 border-t border-secondary-200">
     {{-- profile info --}}
-    <div class="flex items-center gap-2.5">
+    <div class="flex lg:items-center items-start gap-2.5">
         <a href="/profile" class="shrink-0">
             <img src="{{ asset('assets/images/frieren.jpg') }}" class="size-12 rounded-full object-cover" alt="profile">
         </a>
-        <div class="flex flex-col font-medium w-full">
+        <div class="flex gap-2 flex-col font-medium w-full">
             <div class="flex justify-between gap-2 items-center">
-                <div class="flex items-center gap-2">
-                    <a href="/" class="font-semibold hover:underline">Bapak Mulyono</a>
-                    <a href="/" class="text-secondary-100 text-500 hover:underline">@mulyonoganteng123</a>
-                    <a href="/" class="bg-primary-400 font-bold text-500 px-2 py-1 rounded-md">Politik</a>
+                <div class="flex items-center gap-3">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center lg:gap-2 lg:text-500 gap-0">
+                        <a href="/" class="font-semibold hover:underline">Bapak Mulyono</a>
+                        <a href="/" class="text-secondary-100 text-500 hover:underline">@mulyonoganteng123</a>
+                    </div>
                 </div>
+
                 <button class="{{ config('constants.icon.more') }} size-[24px] cursor-pointer"></button>
             </div>
-            <h2 class="text-secondary-100 text-500">1 menit yang lalu</h2>
+            <div class="flex gap-2 items-center">
+                <h2 class="text-secondary-100 text-500">1 menit</h2>
+                <a href="/" class="bg-primary-400 font-bold text-500 px-2 py-1 rounded-md w-fit">Pendidikan</a>
+            </div>
         </div>
     </div>
 
@@ -21,8 +26,8 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, laborum?</p>
 
     {{-- votes --}}
-    <div class="flex justify-between">
-        <div class="flex gap-3 items-center">
+    <div class="flex justify-between text-500 lg:text-400">
+        <div class="flex lg:gap-3 gap-1 items-center">
             {{-- upvote --}}
             <button class="flex text-[#4BA767] font-bold cursor-pointer">
                 <span class="{{ config('constants.icon.arrow') }} size-6">
