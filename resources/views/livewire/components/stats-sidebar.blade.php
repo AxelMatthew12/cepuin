@@ -1,7 +1,7 @@
-<div class="bg-primary-200 h-screen w-80 text-secondary-200 flex flex-col gap-5">
+<div class="bg-primary-200 h-screen w-80 text-secondary-200 lg:flex hidden flex-col gap-5">
     <section class="sticky top-0 bg-primary-200 p-5 z-10">
         <search class="bg-primary-300 px-5 py-2 rounded-full flex items-center gap-1 w-full ">
-            <span class="{{ config('constants.icon.search') }} size-6"></span>
+            <span class="{{ config('constants.icon.search') }} size-6 text-secondary-200"></span>
             <input type="text" placeholder="Cari" class="bg-transparent focus:outline-none w-full">
         </search>
     </section>
@@ -9,7 +9,7 @@
         {{-- topic statistic --}}
         <div class="bg-primary-300 p-5 rounded-[10px] flex flex-col gap-5">
             <div class="flex items-center gap-2.5 border-b border-secondary-200 pb-2">
-                <span class="{{ config('constants.icon.statistic') }} size-6"></span>
+                <span class="{{ config('constants.icon.statistic') }} size-6 text-secondary-200"></span>
                 <h1 class="text-300 font-bold">Statistik topik</h1>
             </div>
 

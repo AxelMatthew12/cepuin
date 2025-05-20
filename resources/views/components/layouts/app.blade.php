@@ -18,7 +18,7 @@
     @if (!request()->routeIs('login', 'register', 'register.*', 'auth.*'))
         <livewire:components.sidebar />
     @endif
-    <main class="ml-80 flex">
+    <main class="md:ml-80 ml-[72px] flex">
         <div class="border-x border-white w-full">
             {{ $slot }}
         </div>
