@@ -4,7 +4,7 @@
         <a href="/profile" class="shrink-0">
             <img src="{{ asset('assets/images/frieren.jpg') }}" class="size-12 rounded-full object-cover" alt="profile">
         </a>
-        <div class="flex flex-col gap-1 font-medium w-full">
+        <div class="flex flex-col font-medium w-full">
             <div class="flex justify-between gap-2 items-center">
                 <div class="flex items-center gap-2">
                     <a href="/" class="font-semibold hover:underline">Bapak Mulyono</a>
