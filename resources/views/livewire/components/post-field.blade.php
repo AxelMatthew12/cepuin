@@ -1,4 +1,4 @@
- <section class="p-5 bg-primary-300">
+ <section class="p-5 mt-2 lg:mt-0 bg-primary-300">
      <form action="/" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="flex items-start lg:gap-3 gap-1 border-b border-secondary-200 pb-5">
@@ -18,14 +18,14 @@
                      <input type="file" name="media" class="hidden">
                  </label>
 
-                 <select name="location" class="bg-primary-400 px-3 py-1 font-semibold rounded-full text-sm w-fit">
-                     <option value="">Location</option>
+                 <select name="location" class="select bg-primary-200 font-semibold">
+                     <option disabled selected>Lokasi</option>
                      <option value="jatim">Jatim</option>
                      <option value="jabar">Jabar</option>
                      <option value="jateng">Jateng</option>
                  </select>
 
-                 <select name="topic" class="bg-primary-400 px-3 py-1 font-semibold rounded-full text-sm w-fit">
+                 <select name="topic" class="select bg-primary-200">
                      <option value="">Topik</option>
                      <option value="politik">Politik</option>
                      <option value="bencana">Bencana</option>
@@ -35,7 +35,7 @@
 
              <div>
                  <button type="submit"
-                     class="bg-primary-400 px-5 py-2 rounded-full font-semibold hover:bg-primary-200 transition-all text-sm w-fit">
+                     class="bg-primary-400 px-5 py-2 rounded-full font-semibold hover:bg-primary-200 transition-all text-400 w-fit">
                      Posting
                  </button>
              </div>

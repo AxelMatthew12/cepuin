@@ -1,4 +1,4 @@
-<div class="w-full min-h-screen text-secondary-200 border-x border-secondary-200 h-fit">
+<div class="w-full min-h-screen text-secondary-200 border-x border-secondary-200 h-fit py-2 lg:py-0">
     <!-- Mobile Search Bar -->
     <section class="bg-primary-200 w-full block lg:hidden px-4 py-2">
         <div class="bg-primary-300 px-4 py-2 rounded-full flex items-center gap-2 w-full">
