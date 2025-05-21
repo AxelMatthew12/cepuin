@@ -2,8 +2,8 @@
     <a href="/" class="text-200 font-bold lg:block hidden mb-10">
         cepuin.
     </a>
-    <div class="h-full flex flex-col justify-between">
-        <div class="flex flex-col gap-6">
+    <div class="h-full flex flex-col justify-between items-center lg:items-start lg:py-0 py-3">
+        <div class="flex flex-col gap-6 items-center w-full">
             @foreach ($links as $link)
                 <a href="{{ $link['link'] }}"
                     class="flex items-center gap-3.5 font-semibold text-200 hover:bg-primary-300 transition duration-100 lg:px-5 px-3 py-2 rounded-full w-full">
@@ -12,9 +12,15 @@
                     <p class="lg:block hidden">{{ $link['name'] }}</p>
                 </a>
             @endforeach
-        </div>
 
-        <a href="/profile" class="bg-primary-300 w-full px-5 py-2.5 rounded-md flex justify-between items-center">
+        </div>
+        <a href="/profile" class="lg:hidden block">
+            <img src="{{ asset('assets/images/frieren.jpg') }}" class="size-10 rounded-full object-cover"
+                alt="profile">
+        </a>
+
+        <a href="/profile"
+            class="bg-primary-300 w-full px-5 py-2.5 rounded-md lg:flex justify-between items-center hidden">
             <div class="flex gap-2.5">
                 <img src="{{ asset('assets/images/frieren.jpg') }}" class="size-10 rounded-full object-cover"
                     alt="profile">
