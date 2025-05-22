@@ -17,6 +17,9 @@ Route::name('register.')->prefix('/register')->group(function () {
 });
 
 
+
+
+
 // Route::get('/register', [AuthController::class, 'showRegister'])->name('register.form');
 // Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1')->name('register.sendlink');
 // Route::get('/register/verify', [AuthController::class, 'verifyLink'])->name('register.verify');
