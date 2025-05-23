@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('location')->nullable();
             $table->string('geo_location')->nullable();
             $table->unsignedBigInteger('topic_id');
+            $table->integer('view')->default(0); 
             $table->timestamps();
             
             $table->foreign('location')->references('id')->on('regencies')->nullOnDelete();
