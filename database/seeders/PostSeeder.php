@@ -22,20 +22,20 @@ class PostSeeder extends Seeder
             $upvote = $faker->numberBetween(0, 1000);
             $downvote = $faker->numberBetween(0, 500);
 
-            $post = Post::create([
+           Post::create([
                 'caption' => $faker->sentence,
                 'img_path' => $faker->imageUrl(640, 480, 'nature'),
                 'video_path' => null,
                 'upvote' => $upvote,
                 'downvote' => $downvote,
-                'clean_vote' => 0,
-                'comment_count' => 0,
+                'clean_vote' => $upvote - $downvote,
+                'comment_count' =>0,
                 'location' => $faker->randomElement($regencies),
                 'geo_location' => $faker->latitude() . ',' . $faker->longitude(),
                 'topic_id' => $faker->randomElement($topics),
+                'view' => ($upvote + $downvote)+ rand(0,200),  
             ]);
-
-            $post->clean_vote = $upvote - $downvote;
+ 
         }
     }
 }
