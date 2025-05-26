@@ -17,6 +17,7 @@ return [
         'eye' => 'icon-[mdi--eye]',
         'back' => 'icon-[lets-icons--back]',
         'reply' => 'icon-[ic--baseline-reply]',
-        'image' => 'icon-[material-symbols--image]'
+        'image' => 'icon-[material-symbols--image]',
+        'google' => 'icon-[flat-color-icons--google]',
     ]
 ];
