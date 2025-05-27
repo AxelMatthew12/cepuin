@@ -19,13 +19,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
 
-        $gwh = User::create([
-            'name' => 'PurnamaGanteng',
-            'email' => 'himadatsuki@gmail.com',
-            'password' => Hash::make('purnama'),
-            'pfp_path' => 'https://randomuser.me/api/portraits/men/22.jpg',
-
-        ]);
+        
         $this->call([
             ProvinceSeeder::class,
             RegencySeeder::class,

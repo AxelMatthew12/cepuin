@@ -24,7 +24,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->userName,
+            'name' => $this->faker->name,
+            'username' => $this->faker->userName,
             'email' => $this->faker->unique()->safeEmail,
             'password' => bcrypt('password'),
             'pfp_path' => 'https://randomuser.me/api/portraits/' . ['men', 'women'][rand(0, 1)] . '/' . rand(1, 99) . '.jpg',

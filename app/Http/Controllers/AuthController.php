@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -33,29 +34,34 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:100',
+                'username' => 'required|string|max:100|unique:users,username',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
+            $temp = [
+                'name' => $validated['name'],
+                'username' => $validated['username'],
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+            ];
 
-        $temp = [
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ];
+            $url = URL::temporarySignedRoute(
+                'register.verify',
+                now()->addMinutes(30),
+                $temp
+            );
 
-        $url = URL::temporarySignedRoute(
-            'register.verify',
-            now()->addMinutes(30),
-            $temp
-        );
+            Mail::raw("Klik link ini untuk verifikasi dan menyelesaikan pendaftaran:\n\n$url", function ($msg) use ($validated) {
+                $msg->to($validated['email'])->subject('Verifikasi Pendaftaran');
+            });
 
-        Mail::raw("Klik link ini untuk verifikasi dan menyelesaikan pendaftaran:\n\n$url", function ($msg) use ($validated) {
-            $msg->to($validated['email'])->subject('Verifikasi Pendaftaran');
-        });
-
-        return back()->with('success', 'Link verifikasi telah dikirim ke email Anda.');
+            return back()->with('success', 'Link verifikasi telah dikirim ke email Anda.');
+        } catch (ValidationException $e) {
+            dd($e->errors());
+        }
     }
 
     public function verifyLink(Request $request)
@@ -70,6 +76,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => $request->password,
         ]);
@@ -126,6 +133,7 @@ class AuthController extends Controller
 
             $user = User::create([
                 'name' => $googleUser->getName(),
+                'username' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
                 'pfp_path' => $googleUser->getAvatar(),
 

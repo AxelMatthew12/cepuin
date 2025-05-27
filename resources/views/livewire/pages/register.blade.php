@@ -10,7 +10,8 @@
                 <h2 class="text-200 font-bold text-primary-100">Daftar akun cepuin.</h2>
             </div>
 
-            <form action="#" method="POST" class="space-y-6">
+            <form action="/register" method="POST" class="space-y-6">
+                @csrf
                 <input type="text" name="name" placeholder="Nama" class="w-full rounded-md border px-4 py-3 text-secondary-100 font-medium" />
                 <input type="text" name="username" placeholder="Username" class="w-full rounded-md border px-4 py-3 text-secondary-100 font-medium" />
                 <input type="email" name="email" placeholder="Email address" class="w-full rounded-md border px-4 py-3 text-secondary-100 font-medium" />
